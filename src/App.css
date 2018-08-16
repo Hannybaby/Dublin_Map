@@ -1,0 +1,216 @@
+.header {
+  width: 100%;
+  height: 38px;
+  background-color: #000;
+  font-size: 1.6em;
+  color: #fff;
+  position: fixed;
+  z-index: 90;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-nav-container {
+  background-color: #000;
+  width: 280px;
+  padding: 10px 0 5px 50px;
+  color: #fff;
+  position: fixed;
+  z-index: 98;
+  margin-top: 38px;
+  border-bottom-right-radius: 8px;
+}
+
+.App-navigation {
+  width: 35px;
+  text-align: left;
+}
+
+.Map-container {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Menu Source:
+https://codepen.io/erikterwan/pen/EVzeRP */
+/*
+ *
+ * Made by Erik Terwan
+ * 24th of November 2015
+ * MIT License
+ */
+
+a
+{
+  text-decoration: none;
+  color: #232323;
+
+  transition: color 0.3s ease;
+}
+
+#toggleham
+{
+  display: block;
+  position: relative;
+  top: 0px;
+  left: 0px;
+
+  z-index: 00;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#toggleham .nav-input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+#pointer {
+  cursor: pointer;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#toggleham span
+{
+  display: block;
+  width: 40px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #fff; /*Hamburger Color*/
+  border-radius: 3px;
+
+  z-index: 1;
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 280px;
+  height: 100vh;
+  margin: 0px 0 0 -50px;
+  padding: 0 0 0 10px;
+
+  background: #000;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  overflow: auto;
+
+
+}
+
+#menu li
+{
+  padding: 20px 0px 20px 0px;
+  font-size: 16px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+.visible {
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  transform-origin: -100% 0%;
+  transform: translate(0%, 0);
+}
+
+.hidden {
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+}
+
+/* Nav on big screens */
+
+/* Sidebar */
+
+.filter {
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+.filter-locations {
+  width: 100%;
+  padding: 10px;
+  margin: 0 0 30px 0px;
+  font-size: 16px;
+  border: 0;
+  outline: none;
+  float: left;
+  border-radius: 5px;
+}
+
+input:focus {
+  box-shadow: 0px 0px 4px 4px #33659e;
+}
+
+li.Sidebar-location {
+  margin: 5px 0;
+  border-bottom: 1px solid #fff;
+}
+
+li:hover {
+  background-color: #006400;
+  cursor: pointer;
+}
+
+/* Error handling */
+.App-offline {
+  padding-top: 50%;
+  min-height: 100%;
+  background-color: #000;
+  font-size: 1.6em;
+  color: #fff;
+}
+
+.error-info {
+  z-index: 1;
+  position: absolute;
+  background: #000;
+  padding: 10px;
+  margin: 200px 0px;
+  width: 50vw;
+  right: 0;
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+
+.header {
+  font-size: 20px;
+}
+
+.App-nav-container {
+  width: 100%;
+  max-height: 50px;
+}
+
+#menu {
+  max-height: 200px;
+  width: 100vw;
+}
+
+}

@@ -25,7 +25,7 @@ export class MapContainer extends Component {
 
     return (
       <div className="Map-container" role="application">
-        <div className="header">Museums in the &hearts; of Dublin</div>
+        <header>Museums in the &hearts; of Dublin</header>
 
         <Map
           google={this.props.google}
@@ -41,9 +41,9 @@ export class MapContainer extends Component {
             lat: 53.35014,
             lng: -6.266155
           }}
-          zoom={16}
-          disableDefaultUI={true}
-        >
+          zoom={15}
+          disableDefaultUI={true}>
+
           {filterLocations.map(item => {
             // filter locations and create a marker
             return (
@@ -59,11 +59,7 @@ export class MapContainer extends Component {
                   scale: 8
                 }}
                 animation={
-                  activeMarker
-                    ? item.name === activeMarker.title
-                      ? "1"
-                      : "0"
-                    : "0"
+                  activeMarker ? item.name === activeMarker.title ? "1" : "0"   : "0"
                 }
                 position={{
                   lat: item.location.lat,
@@ -74,11 +70,11 @@ export class MapContainer extends Component {
             );
           })}
 
-          <InfoWindow marker={activeMarker} visible={showingInfoWindow}>
+          <InfoWindow marker={activeMarker} visible={showingInfoWindow} maxWidth={200}>
             <div style={{ color: "darkgreen" }}>
               <h1 tabIndex={"0"}>{selectedPlace.name}</h1>
               <p tabIndex={"0"}>{selectedPlace.address}</p>
-              <p tabIndex={"0"}>Source: &copy; Foursquare</p>
+              <p tabIndex={"0"}>Source: <a href="http://foursquare.com" target="_blank" rel="noopener noreferrer">&copy; Foursquare</a></p>
             </div>
           </InfoWindow>
         </Map>

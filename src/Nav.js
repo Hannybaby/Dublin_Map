@@ -22,7 +22,7 @@ class Nav extends Component {
     return (
       <div>
         <div className="App-nav-container">
-          <nav className="App-navigation navigation">
+          <nav className="App-navigation">
             <div id="pointer">
               <div
                 id="toggleham"
@@ -30,8 +30,7 @@ class Nav extends Component {
                 role="button"
                 tabIndex="0"
                 onKeyDown={e => onKeyPressed(e)}
-                onClick={toggleNavigation}
-              >
+                onClick={toggleNavigation} >
                 <span />
                 <span />
                 <span />
@@ -41,14 +40,12 @@ class Nav extends Component {
             <ul
               id="menu"
               className={active ? "visible" : "hidden"}
-              onKeyDown={e => onKeyPressed(e)}
-            >
+              onKeyDown={e => onKeyPressed(e)} >
               <Sidebar
                 filterLocations={filterLocations}
                 onChange={this.props.updateQuery}
                 onClick={this.props.onSidebarLinkClick}
-                tabIndex={this.props.tabIndex}
-              />
+                tabIndex={this.props.tabIndex} />
             </ul>
           </nav>
         </div>

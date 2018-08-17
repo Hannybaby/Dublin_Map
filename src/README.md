@@ -21,6 +21,8 @@ To run this application on your machine:
 
 ## Dependencies
 
+This Project was bootstrapped with Create-React-App
+
 * React - a JavaScript library
 * Google-Maps-React - a React Component
 * Forsquare API - for fetching information about locations

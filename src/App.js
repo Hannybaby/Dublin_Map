@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import MapContainer from "./Map";
-import Navigation from "./Nav";
-import escapeRegExp from "escape-string-regexp";
-import "./App.css";
+import React, { Component } from 'react';
+import MapContainer from './Map';
+import Navigation from './Nav';
+import escapeRegExp from 'escape-string-regexp';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -18,20 +18,18 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.getLocations();
-    this.toggleNavigation();
-    this.handleTabIndex();
-    this.ifAppIsLoading();
-    this.changeErrorMessage();
-    this.checkMapsLoadingStatus();
-  };
+    this.getLocations()
+    this.toggleNavigation()
+    this.handleTabIndex()
+    this.ifAppIsLoading()
+    
+  }
 
   componentDidUpdate = () => {
-    this.handleTabIndex();
-    this.checkMapsLoadingStatus();
-  };
+    this.handleTabIndex()
+  }
 
-  // Fetching Foursquare API
+  // Fetching Foursquare-API
   getLocations = () => {
     fetch(
       'https://api.foursquare.com/v2/venues/search?ll=53.350140, -6.266155&query="museum"&client_id=D0GQP4NDGYESWGEPP3YVRJQJIUGWP35KBKYAU2T1TYE0IVMA&client_secret=YFKNTG1WLS5PLNOYRI34OJFWWYLFE5I1IMICAJFHNUXIP4XM&v=20180802'
@@ -40,61 +38,15 @@ class App extends Component {
       .then(items => {
         this.setState({ items: items.response.venues });
       });
-  };
+  }
 
-  // Foursuqare Error
-  onGetLocationsError = e => {
-    var appContainer = document.querySelector(".App");
-    var errorInfo = document.createElement("div");
-    var errorInfoP = document.createTextNode(
-      "Oh, there are no locations available :("
-    );
-    appContainer.append(errorInfo);
-    errorInfo.appendChild(errorInfoP);
-
-    errorInfo.className += "error-info";
-  };
-
+  // When offline
   ifAppIsLoading = () => {
-    var appIsOffline = document.querySelector(".App").lastElementChild;
-    appIsOffline.className += "App-offline";
-    appIsOffline.innerHTML = "Oh, it seems that you are offline :(";
+    var appIsOffline = document.querySelector('.App').lastElementChild;
+    appIsOffline.className += 'App-offline'
+    appIsOffline.innerHTML = 'Oh, it seems that there is a page load error :(';
   };
 
-  // Checking if Map is visible
-  checkMapsLoadingStatus = () => {
-    var map = document.querySelector(".Map-container");
-    var sidebarList = document.querySelector(".Sidebar-locations");
-    var gmErrContainer = document.querySelector(".gm-err-container");
-
-    if (map && gmErrContainer) {
-      //console.log('failed')
-      sidebarList.style.display = "none";
-    } else if (map && !gmErrContainer) {
-      //console.log('success')
-      sidebarList.style.display = "block";
-    } else {
-      //console.log('failed')
-      sidebarList.style.display = "none";
-    }
-  };
-
-  // Google Map is not loading
-  changeErrorMessage = () => {
-    setTimeout(function() {
-      var gmErrMessageIcon = document.querySelector(".gm-err-icon");
-      var gmErrMessageTitle = document.querySelector(".gm-err-title");
-      var gmErrMessage = document.querySelector(".gm-err-message");
-
-      if (gmErrMessage) {
-        gmErrMessageTitle.innerHTML =
-          "There seems to be an error with Google Maps";
-        gmErrMessageIcon.style.display = "none";
-        gmErrMessage.style.display = "none";
-      } else {
-      }
-    }, 1500);
-  };
 
   // Nav and TabIndex
   toggleNavigation = () => {
@@ -106,8 +58,8 @@ class App extends Component {
     });
 
     // handles tabIndex in Sidebar
-    var menuSidebarVisible = document.querySelector(".visible");
-    var menuSidebarHidden = document.querySelector(".hidden");
+    var menuSidebarVisible = document.querySelector('.visible');
+    var menuSidebarHidden = document.querySelector('.hidden');
 
     if (menuSidebarVisible) {
       this.setState({
@@ -129,13 +81,13 @@ class App extends Component {
 
   // TabIndex FourSquare
   handleTabIndex = i => {
-    var mapLinks = document.querySelectorAll("a");
+    var mapLinks = document.querySelectorAll('a');
 
     for (i; i < mapLinks.length; i++) {
-      mapLinks[i].tabIndex = "-1";
+      mapLinks[i].tabIndex = '-1';
     }
 
-    [...document.querySelectorAll(".gmnoprint")].tabIndex = [0];
+    [...document.querySelectorAll('.gmnoprint')].tabIndex = [0];
   };
 
   // Handles marker click-states
@@ -168,9 +120,9 @@ class App extends Component {
 
   // opens window after link is clicked
   onSidebarLinkClick = e => {
-    let clickedMarker = [...document.querySelectorAll(".gmnoprint")];
+    let clickedMarker = [...document.querySelectorAll('.gmnoprint')];
 
-    if (document.querySelector(".Map-container")) {
+    if (document.querySelector('.Map-container')) {
       clickedMarker.find(m => m.title === e).click();
     } else {
       this.onGetLocationsError();
@@ -183,7 +135,7 @@ class App extends Component {
     //search items
     let filterLocations;
     if (query && items) {
-      const match = new RegExp(escapeRegExp(query), "i");
+      const match = new RegExp(escapeRegExp(query), 'i');
       //filter items
       filterLocations = items.filter(item => match.test(item.name));
     } else {
@@ -191,7 +143,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className='App'>
         <Navigation
           filterLocations={filterLocations}
           updateQuery={this.updateQuery}

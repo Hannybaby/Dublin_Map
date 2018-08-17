@@ -18,8 +18,7 @@ class Sidebar extends Component {
           id={item.id}
           role="link"
           onClick={e => this.props.onClick(item.name)}
-          key={item.name}
-        >
+          key={item.name}>
           {item.name}
         </li>
       );
@@ -40,10 +39,7 @@ class Sidebar extends Component {
         </div>
 
         <div className="Sidebar-locations">
-          {sidebarListElements.length ? (
-            sidebarListElements
-          ) : (
-            <p>No locations found :(</p>
+          {sidebarListElements.length ? (sidebarListElements) : ( <p>No locations found :(</p>
           )}
         </div>
       </div>

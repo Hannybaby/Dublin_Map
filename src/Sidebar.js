@@ -13,12 +13,13 @@ class Sidebar extends Component {
     var sidebarListElements = filterLocations.map(item => {
       return (
         <li
-          tabIndex={tabIndex}
+          tabIndex="0"
           className="Sidebar-location"
           id={item.id}
-          role="link"
+          role="menuitem"
           onClick={e => this.props.onClick(item.name)}
-          key={item.name}>
+          key={item.name}
+          >
           {item.name}
         </li>
       );
@@ -39,7 +40,7 @@ class Sidebar extends Component {
         </div>
 
         <div className="Sidebar-locations">
-          {sidebarListElements.length ? (sidebarListElements) : ( <p>No locations found :(</p>
+          {sidebarListElements.length ? (sidebarListElements):( <p>No locations found :(</p>
           )}
         </div>
       </div>

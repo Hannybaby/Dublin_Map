@@ -10,6 +10,7 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" href="./App.css">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -19,7 +20,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Museums of Dublin Map</title>
   </head>
   <body>
     <noscript>
@@ -36,5 +37,22 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      //Error when Google Maps is not loading
+      gm_authFailure = () => {
+      var gmErrMessageIcon = document.querySelector('.gm-err-icon')
+      var gmErrMessageTitle = document.querySelector('.gm-err-title')
+      var gmErrMessage = document.querySelector('.gm-err-message')
+      var ariaError = document.querySelector('.gm-err-title')
+
+      if (gmErrMessage) {
+        gmErrMessageTitle.innerHTML = 'Oh no! There is an Error with Google Maps :('
+        gmErrMessageIcon.style.display = 'none'
+        gmErrMessage.style.display = 'none'
+        gmErrMessageTitle.tabIndex = '1'
+        //ariaError.setAttribute('banner').tabIndex = "5"
+      }
+    };
+</script>
   </body>
 </html>

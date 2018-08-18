@@ -28,7 +28,7 @@ class Nav extends Component {
                 id="toggleham"
                 className="button"
                 role="button"
-                tabIndex="0"
+                tabIndex="1"
                 onKeyDown={e => onKeyPressed(e)}
                 onClick={toggleNavigation} >
                 <span />
@@ -38,7 +38,8 @@ class Nav extends Component {
             </div>
 
             <ul
-              id="menu"
+              id="menu" 
+              aria-role="menuitem"
               className={active ? "visible" : "hidden"}
               onKeyDown={e => onKeyPressed(e)} >
               <Sidebar

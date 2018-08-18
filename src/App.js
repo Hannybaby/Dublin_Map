@@ -21,8 +21,6 @@ class App extends Component {
     this.getLocations()
     this.toggleNavigation()
     this.handleTabIndex()
-    this.ifAppIsLoading()
-    
   }
 
   componentDidUpdate = () => {
@@ -39,13 +37,6 @@ class App extends Component {
         this.setState({ items: items.response.venues });
       });
   }
-
-  // When offline
-  ifAppIsLoading = () => {
-    var appIsOffline = document.querySelector('.App').lastElementChild;
-    appIsOffline.className += 'App-offline'
-    appIsOffline.innerHTML = 'Oh, it seems that there is a page load error :(';
-  };
 
 
   // Nav and TabIndex

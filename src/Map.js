@@ -88,5 +88,5 @@ Map.PropTypes = {
 };
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyDIiEtOWFZYYl10iYBjcMte_ynGzybwGJwY&v&v"
+  apiKey: "AIzaSyDIiEtOWFZYYl10iYBjcMteyn_GzybwGJwY&v&v"
 })(MapContainer);

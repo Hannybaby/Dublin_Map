@@ -18,11 +18,13 @@ To run this application on your machine:
 * Insert node_modules files in the root directory 
 * Install NPM
 * Open a terminal window and type npm start
-* Open your browser and navigate to localhost:3000
+* Open your browser and navigate to http://localhost:3000/
 
-Run this App with a Service Worker:
+To run this App with a Service Worker:
 
-* Use / create a build-version of this app and run it on localhost:5000
+* Create a production build with npm run build
+* Type serve -s build
+* Navigate to http://localhost:5000/
 
 ## Dependencies
 

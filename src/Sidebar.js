@@ -8,17 +8,17 @@ class Sidebar extends Component {
   };
 
   render() {
-    const { filterLocations, tabIndex } = this.props;
+    const { filterLocations } = this.props;
 
     var sidebarListElements = filterLocations.map(item => {
       return (
         <li
-          tabIndex="0"
           className="Sidebar-location"
           id={item.id}
           role="menuitem"
           onClick={e => this.props.onClick(item.name)}
           key={item.name}
+          tabIndex="0"
           >
           {item.name}
         </li>
@@ -29,10 +29,11 @@ class Sidebar extends Component {
       <div className="App-sidebar">
         <div className="filter" id="filter-input">
           <input
-            role="searchbox"
             tabIndex="0"
             className="filter-locations"
             type="text"
+            aria-label="filter"
+            name="filter"
             placeholder="Filter Museums here"
             value={this.props.query}
             onChange={e => this.props.onChange(e.target.value)}

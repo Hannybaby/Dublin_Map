@@ -13,7 +13,8 @@ class App extends Component {
       selectedPlace: {},
       items: [],
       active: false,
-      tabIndex: -1
+      tabIndex: 0
+
     };
   }
 
@@ -45,28 +46,34 @@ class App extends Component {
     const currentState = this.state.active;
 
     this.setState({
-      active: !currentState
+      active: !currentState,
     });
+
 
     // handles tabIndex in Sidebar
     var menuSidebarVisible = document.querySelector('.visible');
     var menuSidebarHidden = document.querySelector('.hidden');
 
+
     if (menuSidebarVisible) {
       this.setState({
-        tabIndex: 0
+        tabIndex: 0,
       });
+
     } else if (menuSidebarHidden) {
       this.setState({
-        tabIndex: -1
+        tabIndex: -1,
       });
     }
   };
 
-  // TabIndex
+
+  // Enter
+
   onKeyPressed = e => {
     if (e.keyCode === 13) {
       document.activeElement.click();
+
     }
   };
 

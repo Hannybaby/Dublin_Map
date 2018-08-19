@@ -24,22 +24,23 @@ class Nav extends Component {
         <div className="App-nav-container">
           <nav className="App-navigation">
             <div id="pointer">
-              <div
-                id="toggleham"
+              <span
+                id="toggle-menu"
                 className="button"
                 role="button"
-                tabIndex="1"
+                aria-label="menu-button"
+                tabIndex="0" 
                 onKeyDown={e => onKeyPressed(e)}
                 onClick={toggleNavigation} >
                 <span />
                 <span />
                 <span />
-              </div>
+              </span>
             </div>
 
             <ul
               id="menu" 
-              aria-role="menuitem"
+              role="menu"
               className={active ? "visible" : "hidden"}
               onKeyDown={e => onKeyPressed(e)} >
               <Sidebar
